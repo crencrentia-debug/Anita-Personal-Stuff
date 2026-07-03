@@ -1,0 +1,337 @@
+:root {
+  --pink: #ec0868;
+  --pink-dark: #c40656;
+  --yellow: #ffd400;
+  --navy: #1a1450;
+  --box-pink: #f6c9ef;
+  --card-white: #f4f4f4;
+  --text-light: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(ellipse at top, var(--pink), var(--pink-dark));
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  gap: 1.2rem;
+}
+
+.title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  color: var(--navy);
+  -webkit-text-stroke: 2px var(--navy);
+  text-shadow: 3px 3px 0 var(--yellow);
+  letter-spacing: 1px;
+}
+
+.countdown {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--box-pink);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  border: 3px solid var(--navy);
+}
+
+.time-box {
+  background: var(--text-light);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  min-width: 75px;
+  border: 2px solid var(--navy);
+  transition: transform 0.2s ease;
+}
+
+.time-box:hover {
+  transform: translateY(-4px) rotate(-2deg);
+}
+
+.time-box span {
+  font-family: 'Baloo 2', sans-serif;
+  display: block;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+
+.time-box p {
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.subtitle {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  color: var(--text-light);
+}
+
+.question {
+  background: var(--yellow);
+  border-radius: 16px;
+  border: 3px solid var(--navy);
+  padding: 1.2rem 1.5rem;
+  max-width: 360px;
+}
+
+.question h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  background: var(--card-white);
+  border-radius: 10px;
+  border: 2px solid var(--navy);
+  overflow: hidden;
+}
+
+button {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex: 1;
+  transition: background 0.2s ease;
+}
+
+#yesBtn {
+  color: var(--pink-dark);
+  border-right: 2px solid var(--navy);
+}
+
+#noBtn {
+  color: var(--navy);
+}
+
+button:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+/* ===== YES modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 20, 80, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--yellow);
+  border: 3px solid var(--navy);
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  max-width: 320px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-hearts {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-box h3 {
+  font-family: 'Baloo 2', sans-serif;
+  color: var(--navy);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-sub {
+  color: var(--navy);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.modal-box button {
+  background: var(--pink);
+  color: var(--text-light);
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+}
+
+.modal-box button:hover {
+  background: var(--pink-dark);
+}
+
+/* ===== NO modal (dark/rain) ===== */
+.modal-overlay-sad {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.modal-overlay-sad.show {
+  display: flex;
+}
+
+.modal-box-sad {
+  background: #1e2029;
+  border: 3px solid #444a5c;
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  max-width: 320px;
+  animation: pop 0.3s ease;
+}
+
+.modal-clouds {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-box-sad h3 {
+  font-family: 'Baloo 2', sans-serif;
+  color: #c7cbe0;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.modal-box-sad button {
+  background: #444a5c;
+  color: #f0f0f5;
+  border: 2px solid #6b7189;
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+}
+
+.modal-box-sad button:hover {
+  background: #5a5f75;
+}
+
+/* ===== Dancing dog ===== */
+.dancing-dog {
+  position: fixed;
+  right: 4%;
+  bottom: 6%;
+  font-size: 8rem;
+  z-index: 2;
+  animation: dance 0.6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes dance {
+  0% {
+    transform: rotate(-15deg) translateY(0);
+  }
+  100% {
+    transform: rotate(15deg) translateY(-15px);
+  }
+}
+
+/* Hide dog on small screens so it doesn't overlap content */
+@media (max-width: 700px) {
+  .dancing-dog {
+    font-size: 5rem;
+    right: 3%;
+    bottom: 3%;
+    opacity: 0.85;
+  }
+}
+
+/* ===== Background decorations ===== */
+.decorations {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.deco {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
+}
+
+.deco1 { top: 8%;  left: 6%;  animation-delay: 0s; }
+.deco2 { top: 18%; left: 85%; animation-delay: 1s; }
+.deco3 { top: 40%; left: 3%;  animation-delay: 2s; }
+.deco4 { top: 70%; left: 90%; animation-delay: 1.5s; }
+.deco5 { top: 85%; left: 10%; animation-delay: 0.5s; }
+.deco6 { top: 12%; left: 45%; animation-delay: 2.5s; }
+.deco7 { top: 60%; left: 6%;  animation-delay: 3s; }
+.deco8 { top: 30%; left: 92%; animation-delay: 1.8s; }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}

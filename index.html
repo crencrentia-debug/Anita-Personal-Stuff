@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKN Countdown</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="stars"></canvas>
+    <main class="container">
+        <h1 class="title">KKN Countdown</h1>
+
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <p class="subtitle">until you're free!!</p>
+
+        <section class="question">
+            <h2>Do I get bonus points for effort?</h2>
+            <div class="buttons">
+                <button id="yesBtn">YES</button>
+                <button id="noBtn">NO</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="dancing-dog">🐶</div>
+
+<div class="decorations">
+    <span class="deco deco1">✨</span>
+    <span class="deco deco2">🎉</span>
+    <span class="deco deco3">💛</span>
+    <span class="deco deco4">🌸</span>
+    <span class="deco deco5">✨</span>
+    <span class="deco deco6">💗</span>
+    <span class="deco deco7">🎈</span>
+    <span class="deco deco8">✨</span>
+</div>
+    <!-- YES popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <p class="modal-hearts">💖💛💖</p>
+            <h3>Aww, thank you!!</h3>
+            <p class="modal-sub">love ya :p</p>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <!-- NO popup -->
+    <div class="modal-overlay-sad" id="modalOverlaySad">
+        <div class="modal-box-sad">
+            <p class="modal-clouds">🌧️☁️🌧️</p>
+            <h3>that's mean :( but okay..</h3>
+            <button id="closeModalSad">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
